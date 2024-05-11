@@ -1,11 +1,8 @@
 from pathlib import Path
 import fire
-import os, sys
+import sys
 import os.path as osp
 sys.path.append(osp.abspath('.'))
-pythonlist = sys.path
-del pythonlist[5]
-sys.path = pythonlist
 from det3d.datasets.nuscenes import nusc_common as nu_ds
 from det3d.datasets.utils.create_gt_database import create_groundtruth_database
 from det3d.datasets.waymo import waymo_common as waymo_ds
