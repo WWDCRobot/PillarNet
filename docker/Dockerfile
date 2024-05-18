@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.12.1-cuda11.3-cudnn8-devel
+FROM pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel
 
 ENV TZ=Asia/Shanghai
 
@@ -26,12 +26,13 @@ ENV PATH /opt/conda/bin:$PATH
 # common python package 
 RUN /opt/conda/bin/pip install --no-cache-dir fire easydict pyyaml llvmlite numba terminaltables shapely --timeout=100
 RUN /opt/conda/bin/pip install --no-cache-dir opencv-python tqdm SharedArray av2 kornia pyquaternion open3d addict --timeout=100
-RUN /opt/conda/bin/pip install --no-cache-dir onnx onnxsim onnx-simplifier onnxruntime-gpu onnxoptimizer --timeout=100
+# RUN /opt/conda/bin/pip install --no-cache-dir onnx onnxsim onnx-simplifier onnxruntime-gpu onnxoptimizer --timeout=100
+
 
 # CenterPoint
 RUN /opt/conda/bin/pip install --no-cache-dir protobuf pybind11 pytest-runner pycocotools imagecorruptions objgraph --timeout=100
 RUN /opt/conda/bin/pip install --no-cache-dir cachetools descartes motmetrics pandas scikit-learn requests nuscenes-devkit --timeout=100
-RUN /opt/conda/bin/pip install --no-cache-dir torch_scatter spconv-cu113 --timeout=100
+RUN /opt/conda/bin/pip install --no-cache-dir torch_scatter spconv-cu116 --timeout=100
 
 
 WORKDIR /workspace
